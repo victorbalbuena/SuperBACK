@@ -23,25 +23,25 @@ public class ProductoController {
     ProductoService productoService;
 
     @CrossOrigin
-    @GetMapping()
+    @GetMapping("/consulta")
     public ArrayList<ProductoModel> obtenerProductos() {
         return productoService.obtenerProductos();
     }
 
     @CrossOrigin
-    @PostMapping()
+    @PostMapping("/alta")
     public ProductoModel guardarProducto(@RequestBody ProductoModel producto) {
         return this.productoService.guardarProducto(producto);
     }
 
     @CrossOrigin
-    @GetMapping(path = "/{id}")
+    @GetMapping(path = "/consulta/{id}")
     public Optional<ProductoModel> obtenerPorId(@PathVariable("id") Long id) {
         return this.productoService.obtenerPorId(id);
     }
 
     @CrossOrigin
-    @DeleteMapping(path = "/{id}")
+    @DeleteMapping(path = "/baja/{id}")
     public String eliminarPorId(@PathVariable("id") Long id) {
         boolean ok = this.productoService.eliminarUsuario(id);
         if (ok) {

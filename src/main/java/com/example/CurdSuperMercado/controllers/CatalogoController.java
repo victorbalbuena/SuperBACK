@@ -23,25 +23,25 @@ public class CatalogoController {
     CatalogoService catalogoService;
 
     @CrossOrigin
-    @GetMapping()
+    @GetMapping("/consulta")
     public ArrayList<CatalogoModel> obtenerCatalogos() {
         return catalogoService.obtenerCatalogo();
     }
 
     @CrossOrigin
-    @PostMapping()
+    @PostMapping("/alta")
     public CatalogoModel guardarModel(@RequestBody CatalogoModel catalogo) {
         return this.catalogoService.guardarCatalogo(catalogo);
     }
 
     @CrossOrigin
-    @GetMapping(path = "/{id}")
+    @GetMapping(path = "/consulta/{id}")
     public Optional<CatalogoModel> obtenerPorId(@PathVariable("id") Long id) {
         return this.catalogoService.obtenerPorId(id);
     }
 
     @CrossOrigin
-    @DeleteMapping(path = "/{id}")
+    @DeleteMapping(path = "/baja/{id}")
     public String eliminarPorId(@PathVariable("id") Long id) {
         boolean ok = this.catalogoService.eliminarCatalogo(id);
         if (ok) {
