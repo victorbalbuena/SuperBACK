@@ -26,6 +26,10 @@ public class ProductoService {
         return productoRepository.findById(id);
     }
 
+    public ArrayList<ProductoModel> obtenerPorNombre(String nombre) {
+        return productoRepository.findByNombre(nombre);
+    }
+
     public boolean eliminarUsuario(Long id) {
         try {
             productoRepository.deleteById(id);

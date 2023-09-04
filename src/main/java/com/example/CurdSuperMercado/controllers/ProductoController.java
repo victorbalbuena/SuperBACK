@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.CurdSuperMercado.models.ProductoModel;
@@ -45,6 +46,12 @@ public class ProductoController {
     @GetMapping(path = "/consulta/{id}")
     public Optional<ProductoModel> obtenerPorId(@PathVariable("id") Long id) {
         return this.productoService.obtenerPorId(id);
+    }
+
+    @CrossOrigin
+    @GetMapping(path = "/consulta/query")
+    public ArrayList<ProductoModel> obtenerPorNombre(@RequestParam("nombre") String nombre) {
+        return this.productoService.obtenerPorNombre(nombre);
     }
 
     @CrossOrigin

@@ -17,7 +17,7 @@ public class ProductoModel {
     private String nombre;
     private double precioUnitario;
     private String descripcion;
-    private Integer existencias;
+    private double existencias;
 
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @ManyToOne(fetch = FetchType.LAZY)
@@ -43,14 +43,14 @@ public class ProductoModel {
      * @return String return the nombre
      */
     public String getNombre() {
-        return nombre;
+        return nombre.toUpperCase();
     }
 
     /**
      * @param nombre the nombre to set
      */
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        this.nombre = nombre.toUpperCase();
     }
 
     /**
@@ -84,14 +84,14 @@ public class ProductoModel {
     /**
      * @return Integer return the existencias
      */
-    public Integer getExistencias() {
+    public double getExistencias() {
         return existencias;
     }
 
     /**
      * @param existencias the existencias to set
      */
-    public void setExistencias(Integer existencias) {
+    public void setExistencias(double existencias) {
         this.existencias = existencias;
     }
 

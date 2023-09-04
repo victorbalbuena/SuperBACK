@@ -9,5 +9,5 @@ import com.example.CurdSuperMercado.models.ProductoModel;
 
 @Repository
 public interface ProductoRepository extends CrudRepository<ProductoModel, Long> {
-    // public abstract ArrayList<ProductoModel> findByNombre(String nombre);
+    public abstract ArrayList<ProductoModel> findByNombre(String nombre);
 }
